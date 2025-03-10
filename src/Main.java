@@ -3,6 +3,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {Scanner scanner = new Scanner(System.in);
         boolean playAgain = true;
+        boolean tryingForPoint = true;
         String userInput;
         while (playAgain) {
             int die1 = rollDie();
@@ -16,7 +17,6 @@ public class Main {
             } else {
                 int point = sum;
                 System.out.println("Your point is " + point);
-                boolean tryingForPoint = true;
                 while (tryingForPoint) {
                     System.out.println("Rolling for the point...");
                     die1 = rollDie();
