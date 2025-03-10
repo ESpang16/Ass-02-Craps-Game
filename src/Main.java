@@ -3,6 +3,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {Scanner scanner = new Scanner(System.in);
         boolean playAgain = true;
+        String userInput;
         while (playAgain) {
             int die1 = rollDie();
             int die2 = rollDie();
@@ -33,13 +34,15 @@ public class Main {
                     }
                 }
             }
-            System.out.print("Do you want to play again? (yes/no): ");
-            String userInput = scanner.nextLine().toLowerCase();
-            if (!userInput.equals("yes")) {
-                playAgain = false;
-            }
+            do {
+                System.out.print("Do you want to play again? (yes/no): ");
+                userInput = scanner.nextLine().toLowerCase();
+                if (!userInput.equals("yes") && !userInput.equals("no")) {
+                    System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+                }
+            } while (!userInput.equals("yes") && !userInput.equals("no"));
+            playAgain = userInput.equals("yes");
         }
-
         System.out.println("Thanks for playing!");
     }
     public static int rollDie() {
